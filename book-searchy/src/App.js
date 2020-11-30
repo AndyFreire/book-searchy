@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import API from "./utils/API";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
+import Input from "./components/Input";
+import Button from "./components/Button";
+import { BookList, BookListItem } from "./components/BookList";
+import { Container, Row, Col } from "./components/Grid";
 
 function App(){
 
@@ -16,7 +20,7 @@ function App(){
   };
 
   const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    // When the form is submitted, prevent its default behavior, get books update the books state
     event.preventDefault();
     API.getBooks(bookSearch)
       .then(res => setBooks(res.data))
@@ -27,7 +31,7 @@ function App(){
     <div>
       <Nav />
       <Jumbotron />
-      {/*<Container>
+      <Container>
         <Row>
           <Col size="md-12">
             <form>
@@ -35,10 +39,10 @@ function App(){
                 <Row>
                   <Col size="xs-9 sm-10">
                     <Input
-                      name="RecipeSearch"
-                      value={recipeSearch}
+                      name="BookSearch"
+                      value={bookSearch}
                       onChange={handleInputChange}
-                      placeholder="Search For a Recipe"
+                      placeholder="Search for Books"
                     />
                   </Col>
                   <Col size="xs-3 sm-2">
@@ -57,26 +61,28 @@ function App(){
         </Row>
         <Row>
           <Col size="xs-12">
-            {!recipes.length ? (
-              <h1 className="text-center">No Recipes to Display</h1>
+            {!books.length ? (
+              <div>
+                <h5 className="text-xs-center text-muted w-100">No Books to Display</h5>
+              </div>
             ) : (
-              <RecipeList>
-                {recipes.map(recipe => {
+              <BookList>
+                {books.map(book => {
                   return (
-                    <RecipeListItem
-                      key={recipe.title}
-                      title={recipe.title}
-                      href={recipe.href}
-                      ingredients={recipe.ingredients}
-                      thumbnail={recipe.thumbnail}
+                    <BookListItem
+                      key={book.title}
+                      title={book.title}
+                      link={book.link}
+                      authors={book.authors}
+                      image={book.image}
                     />
                   );
                 })}
-              </RecipeList>
+              </BookList>
             )}
           </Col>
         </Row>
-      </Container> */}
+      </Container>
     </div>
   );
 
