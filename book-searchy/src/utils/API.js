@@ -9,7 +9,7 @@ export default {
 
   searchBooks: function (query) {
     // Call the GoogleBooks API
-    let googleBooksAPIKey = "AIzaSyDoXQRvul2VBim0JWnXoVL4LakB9oIBfmU";
+    let googleBooksAPIKey =process.env.REACT_APP_API_KEY;
 
     const googleBooksURL= `https://www.googleapis.com/books/v1/volumes?printType=books&maxAllowedMaturityRating=not-mature&q=${query}&key=${googleBooksAPIKey}`;
 
