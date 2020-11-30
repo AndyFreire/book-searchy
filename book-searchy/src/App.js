@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from "./utils/API";
-import Nav from "./components/Nav"
+import Nav from "./components/Nav";
+import Jumbotron from "./components/Jumbotron";
 
 function App(){
 
@@ -25,8 +26,8 @@ function App(){
   return (
     <div>
       <Nav />
-      {/* <Jumbotron />
-      <Container>
+      <Jumbotron />
+      {/*<Container>
         <Row>
           <Col size="md-12">
             <form>
