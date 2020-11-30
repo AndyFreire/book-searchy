@@ -22,8 +22,27 @@ function App(){
   const handleFormSubmit = event => {
     // When the form is submitted, prevent its default behavior, get books update the books state
     event.preventDefault();
-    API.getBooks(bookSearch)
-      .then(res => setBooks(res.data))
+    API.searchBooks(bookSearch)
+      .then(res => {
+        console.log(res);
+        const searchedBooks = res.data.items.map(book => {
+          const title = book.volumeInfo.title;
+          const authors = book.volumeInfo.authors;
+          const description = book.volumeInfo.description || "";
+          const link = book.volumeInfo.infoLink;
+          const image = book.volumeInfo.imageLinks.thumbnail;
+          console.log(image);
+
+          return({
+            title: title,
+            authors: authors,
+            description: description,
+            link: link,
+            image: image
+          })
+        });
+        setBooks(searchedBooks);
+      })
       .catch(err => console.log(err));
   };
 

@@ -9,9 +9,12 @@ function Thumbnail({ src }) {
     <div
       className="thumbnail"
       role="img"
-      aria-label="Recipe Image"
+      aria-label="Book Image"
       style={{
-        backgroundImage: `url(${src})`
+        width: 80,
+        height: 80,
+        backgroundImage: `url(${src})`,
+        backgroundSize: "cover"
       }}
     />
   );

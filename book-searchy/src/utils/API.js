@@ -1,9 +1,18 @@
 import axios from "axios";
 
-// The getRecipes method retrieves recipes from the server
-// It accepts a "query" or term to search the recipe api for
+// The getbooks method retrieves books from the server
+// It accepts a "query" or term to search the book api for
 export default {
-  getRecipes: function(query) {
-    return axios.get("/api/recipes", { params: { q: query } });
+  getBooks: function (query) {
+    return axios.get("/api/books");
+  },
+
+  searchBooks: function (query) {
+    // Call the GoogleBooks API
+    let googleBooksAPIKey = "AIzaSyDoXQRvul2VBim0JWnXoVL4LakB9oIBfmU";
+
+    const googleBooksURL= `https://www.googleapis.com/books/v1/volumes?printType=books&maxAllowedMaturityRating=not-mature&q=${query}&key=${googleBooksAPIKey}`;
+
+    return axios.get(googleBooksURL);
   }
 };
