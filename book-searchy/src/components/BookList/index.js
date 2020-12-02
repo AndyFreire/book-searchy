@@ -1,6 +1,9 @@
 import React from "react";
 import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
+import Button from "../Button";
+import API from "../../utils/API";
+
 
 // Exporting both BookList and BookListItem from this file
 
@@ -27,6 +30,10 @@ export function BookListItem({
   authors,
   link
 }) {
+
+  const saveBook = event => {
+
+  }
   return (
     <li className="list-group-item">
       <Container>
@@ -40,6 +47,14 @@ export function BookListItem({
             <a rel="noreferrer noopener" target="_blank" href={link}>
               Read More!
             </a>
+            <Button
+              onClick={saveBook}
+              type="primary"
+              className="mx-3 btn-sm"
+            >
+              Save
+            </Button>
+
           </Col>
         </Row>
       </Container>

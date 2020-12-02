@@ -21,9 +21,9 @@ function App() {
           <Route exact path={["/", "/search"]}>
             <Search />
           </Route>
-          {/* <Route exact path="/saved">
+          <Route exact path="/saved">
             <Saved />
-          </Route> */}
+          </Route>
         </Switch>
       </div>
 

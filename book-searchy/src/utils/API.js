@@ -14,5 +14,9 @@ export default {
     const googleBooksURL= `https://www.googleapis.com/books/v1/volumes?printType=books&maxAllowedMaturityRating=not-mature&q=${query}&key=${googleBooksAPIKey}`;
 
     return axios.get(googleBooksURL);
+  },
+
+  saveBook: function (book) {
+    return axios.post("/api/books");
   }
 };

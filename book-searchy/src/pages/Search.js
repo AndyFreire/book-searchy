@@ -6,7 +6,7 @@ import { Container, Row, Col } from "../components/Grid";
 import API from "../utils/API";
 
 
-function Saved() {
+function Search() {
 
     const [books, setBooks] = useState([]);
     const [bookSearch, setBookSearch] = useState("");
@@ -30,7 +30,6 @@ function Saved() {
             const description = book.volumeInfo.description || "";
             const link = book.volumeInfo.infoLink;
             const image = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://placeholder.com/";
-            console.log(image);
   
             return ({
               title: title,
@@ -101,4 +100,4 @@ function Saved() {
     );
 }
 
-export default Saved;
+export default Search;
